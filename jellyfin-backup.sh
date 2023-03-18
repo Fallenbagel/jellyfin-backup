@@ -5,7 +5,7 @@ FILENAME=jellyfin-backup-$TIME.tgz
 #FILENAMEJELLYSEERR=jellyseerr-backup-$TIME.tgz
 #JELLYSEERR=
 CONFIGDIR=/var/lib/jellyfin
-CACHEDIR=/var/cache/jellyfin
+#CACHEDIR=/var/cache/jellyfin
 DESDIR=  #destination for example /mnt/disk2/jellyfin-backups
 jellyfinUrl=
 jellyfinApiKey=
@@ -59,7 +59,7 @@ sleep 2
 # compress Jellyfin folder
 time_3=`date +"%Y-%m-%d %T"`
 echo $time_3 compressing jellyfin to tar
-/usr/bin/tar czfC $DESDIR/$FILENAME $CONFIGDIR $CACHEDIR
+/usr/bin/tar czf $DESDIR/$FILENAME $CONFIGDIR
 time_4=`date +"%Y-%m-%d %T"`
 if [ $? -ne 0 ]; then
 	echo $time_4 Failed to compress jellyfin to tar
